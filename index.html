@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para Minha Amiga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 90%;
+            margin: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .socrates {
+            margin-top: 50px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5em;
+            color: #444;
+        }
+
+        .socrates p {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .socrates p.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
+            color: #ff6f61;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        h1.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        p {
+            font-size: 1em;
+            margin: 10px 0;
+            line-height: 1.8;
+            color: #333;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        p.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .decoracao {
+            margin: 20px auto;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #ff6f61, #ffecd2);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .decoracao:hover {
+            background: linear-gradient(to right, #fcb69f, #ff6f61);
+        }
+
+        .assinatura {
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2em;
+            color: #555;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .assinatura.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .assinatura[dir="rtl"] {
+            text-align: right;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                max-width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 0.85em;
+            }
+
+            .decoracao {
+                width: 50px;
+            }
+
+            .assinatura {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="carta">
+        <div class="socrates" id="citacao">
+            <p id="frase"></p>
+            <p id="autor"></p>
+        </div>
+        <h1 id="titulo">Querida Monica,</h1>
+        <div class="decoracao"></div>
+        <p id="paragrafo1">
+            Quero te agradecer por tudo o que você representa para mim. Sua amizade é um tesouro raro, e sou muito grato por tê-la como amiga.<br>
+            Em cada conversa, em cada risada que compartilhamos, encontro um conforto que só uma amizade verdadeira pode trazer. Você é aquela pessoa especial que transforma dias cinzentos em momentos de esperança e alegria.
+        </p>
+        <p id="paragrafo2">
+            Espero que esta carta te faça sorrir e ilumine o seu dia, assim como você ilumina o meu!
+        </p>
+        <p id="paragrafo3">
+            Desejo que sua vida seja sempre repleta de momentos felizes, de conquistas e de paz. Que você nunca se esqueça do quão maravilhosa é e do impacto positivo que tem nas pessoas ao seu redor.<br>
+            Conte sempre comigo, em qualquer situação. Estou aqui para te apoiar, te ouvir, te dar força e, claro, compartilhar mais momentos inesquecíveis. Afinal, amigos do coração são para isso, não é mesmo?
+        </p>
+        <div class="decoracao"></div>
+        <div class="assinatura" id="assinatura" dir="rtl">
+            Com carinho,<br>
+            حبيبي
+        </div>
+    </div>
+    <script>
+        const frases = [
+            "Para conseguir a amizade de uma pessoa digna é preciso desenvolvermos em nós mesmos as qualidades que naquela admiramos.",
+            "O verdadeiro amigo é aquele que aparece quando o resto do mundo desaparece.",
+            "A amizade é a única flor que desabrocha em todas as estações.",
+            "A amizade verdadeira é uma luz que nunca se apaga.",
+            "Um amigo é como uma estrela: você não pode sempre vê-lo, mas sabe que ele está sempre lá.",
+            "O amigo ama em todos os momentos; é um irmão na adversidade.",
+            "Quem tem muitos amigos pode chegar à ruína, mas existe amigo mais apegado que um irmão.",
+            "Assim como o ferro afia o ferro, o amigo afia o seu amigo."
+        ];
+
+        const fraseElement = document.getElementById("frase");
+        const autorElement = document.getElementById("autor");
+
+        function exibirFrase() {
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
+            fraseElement.textContent = `"${fraseAleatoria}"`;
+            fraseElement.classList.add("show");
+            autorElement.classList.add("show");
+
+            setTimeout(() => {
+                fraseElement.classList.remove("show");
+                autorElement.classList.remove("show");
+                setTimeout(exibirFrase, 5000); // Alterado para 5 segundos
+            }, 5000);
+        }
+
+        function mostrarAnimacao() {
+            const elementos = [
+                document.getElementById("titulo"),
+                document.getElementById("paragrafo1"),
+                document.getElementById("paragrafo2"),
+                document.getElementById("paragrafo3"),
+                document.getElementById("assinatura")
+            ];
+
+            elementos.forEach((elemento, index) => {
+                setTimeout(() => elemento.classList.add("show"), index * 1000);
+            });
+        }
+
+        window.onload = () => {
+            document.getElementById("carta").classList.add("show");
+            exibirFrase();
+            mostrarAnimacao();
+        };
+    </script>
+</body>
+</html>
+
+
+
